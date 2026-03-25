@@ -9,7 +9,7 @@
       margin: 10mm;
     }
     body {
-      background: #ccc;
+      background: white;
       font-family: Arial, sans-serif;
       font-size: 10px;
       margin: 0;
@@ -61,24 +61,17 @@
       text-transform: uppercase;
       line-height: 1.3;
     }
-    input[type="text"],
-    input[type="tel"],
-    input[type="email"],
-    input[type="date"],
-    input[type="number"] {
-      border: none;
-      outline: none;
-      font-size: 10px;
-      font-family: Arial, sans-serif;
-      background: white;
-      padding: 0.5mm 1mm;
-    }
     input[type="checkbox"] {
       margin: 0 1mm;
       cursor: pointer;
     }
     label {
       font-size: 10px;
+    }
+    .underline {
+      display: inline-block;
+      border-bottom: 1px solid black;
+      min-height: 3mm;
     }
     .sig-cell {
       text-align: center;
@@ -140,7 +133,7 @@
         DEMANDE DE PRISE EN CHARGE<br>MUTUELLE DES FAR
       </td>
       <td style="width:33%; font-size:10px;">
-        Date : <input type="date" style="width:120px;">
+        Date : <span class="underline" style="width:80%;"></span>
       </td>
     </tr>
   </table>
@@ -153,17 +146,17 @@
       <td colspan="3" class="section-title">A remplir par l'établissement</td>
     </tr>
     <tr>
-      <td style="width: 40%;">Nom de l'établissement : <input type="text" style="width:45%;"></td>
-      <td style="width: 25%;">Code : <input type="text" style="width:50%;"></td>
-      <td style="width: 35%;">Ville : <input type="text" style="width:55%;"></td>
+      <td style="width: 40%;">Nom de l'établissement : <span class="underline" style="width:45%;"></span></td>
+      <td style="width: 25%;">Code : <span class="underline" style="width:50%;"></span></td>
+      <td style="width: 35%;">Ville : <span class="underline" style="width:55%;"></span></td>
     </tr>
     <tr>
-      <td colspan="3">Adresse : <input type="text" style="width:90%;"></td>
+      <td colspan="3">Adresse : <span class="underline" style="width:90%;"></span></td>
     </tr>
     <tr>
-      <td>Tél : <input type="tel" style="width:60%;"></td>
-      <td>Fax : <input type="tel" style="width:60%;"></td>
-      <td>Mail : <input type="email" style="width:60%;"></td>
+      <td>Tél : <span class="underline" style="width:60%;"></span></td>
+      <td>Fax : <span class="underline" style="width:60%;"></span></td>
+      <td>Mail : <span class="underline" style="width:60%;"></span></td>
     </tr>
   </table>
 
@@ -172,18 +165,18 @@
   <!-- Adhérent / Bénéficiaire -->
   <table>
     <tr>
-      <td>Nom et prénom de l'adhérent : <input type="text" style="width:200px;"></td>
-      <td style="width:220px;">C.N.I.E : <input type="text" style="width:130px;"></td>
+      <td>Nom et prénom de l'adhérent : <span class="underline" style="width:50%;"></span></td>
+      <td style="width:220px;">C.N.I.E : <span class="underline" style="width:55%;"></span></td>
     </tr>
     <tr>
-      <td>Bénéficiaire : <input type="text" style="width:240px;"></td>
-      <td>C.N.I.E : <input type="text" style="width:130px;"></td>
+      <td>Bénéficiaire : <span class="underline" style="width:60%;"></span></td>
+      <td>C.N.I.E : <span class="underline" style="width:55%;"></span></td>
     </tr>
     <tr>
       <td colspan="2">
-        Adresse : <input type="text" style="width:180px;">
-        &nbsp; Ville : <input type="text" style="width:100px;">
-        &nbsp; Tél/GSM : <input type="tel" style="width:100px;">
+        Adresse : <span class="underline" style="width:25%;"></span>
+        &nbsp; Ville : <span class="underline" style="width:20%;"></span>
+        &nbsp; Tél/GSM : <span class="underline" style="width:20%;"></span>
       </td>
     </tr>
     <tr>
@@ -192,7 +185,7 @@
         &nbsp;<input type="checkbox" id="lui"><label for="lui"> Lui(elle)-même</label>
         &nbsp;&nbsp;<input type="checkbox" id="conjoint"><label for="conjoint"> Conjoint</label>
         &nbsp;&nbsp;<input type="checkbox" id="enfant"><label for="enfant"> Enfant</label>
-        &nbsp;&nbsp;&#10142;&nbsp; Age : <input type="number" style="width:45px;" min="0" max="99">
+        &nbsp;&nbsp;&#10142;&nbsp; Age : <span class="underline" style="width:40px;"></span>
       </td>
     </tr>
   </table>
@@ -205,10 +198,10 @@
       <td colspan="2" class="section-title">Prestations Demandées</td>
     </tr>
     <tr>
-      <td colspan="2">Diagnostic : <input type="text" style="width:560px;"></td>
+      <td colspan="2">Diagnostic : <span class="underline" style="width:85%;"></span></td>
     </tr>
     <tr>
-      <td colspan="2">Nature de l'acte : <input type="text" style="width:545px;"></td>
+      <td colspan="2">Nature de l'acte : <span class="underline" style="width:83%;"></span></td>
     </tr>
     <tr>
       <td colspan="2" style="text-align:center;">
@@ -219,23 +212,23 @@
     </tr>
     <tr>
       <td colspan="2">
-        Code de l'acte : <input type="text" style="width:90px;">
-        &nbsp;&nbsp; Cotation : <input type="text" style="width:70px;">
-        &nbsp;&nbsp; Kc assimilé : <input type="text" style="width:90px;">
+        Code de l'acte : <span class="underline" style="width:90px;"></span>
+        &nbsp;&nbsp; Cotation : <span class="underline" style="width:70px;"></span>
+        &nbsp;&nbsp; Kc assimilé : <span class="underline" style="width:90px;"></span>
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        Date d'hospitalisation : <input type="date" style="width:140px;">
-        &nbsp;&nbsp; Durée prévisible : <input type="number" style="width:45px;" min="0"> Jours
+        Date d'hospitalisation : <span class="underline" style="width:140px;"></span>
+        &nbsp;&nbsp; Durée prévisible : <span class="underline" style="width:45px;"></span> Jours
       </td>
     </tr>
     <tr>
       <td colspan="2">
         <div style="display: flex; justify-content: flex-start; gap: 60px; align-items: center; width: 100%;">
-          <span>Tarif/Dhs : <input type="text" style="width:90px;"></span>
-          <span>Part Mutuelle : <input type="text" style="width:90px;"></span>
-          <span>Part Adhérent : <input type="text" style="width:90px;"></span>
+          <span>Tarif/Dhs : <span class="underline" style="width:90px;"></span></span>
+          <span>Part Mutuelle : <span class="underline" style="width:90px;"></span></span>
+          <span>Part Adhérent : <span class="underline" style="width:90px;"></span></span>
         </div>
       </td>
     </tr>
