@@ -2,480 +2,161 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Demande de Prise en Charge – Mutuelle des FAR</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Libre+Franklin:wght@400;600;700&display=swap');
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      background: #d6cfc4;
-      font-family: 'Libre Franklin', sans-serif;
-      font-size: 12px;
-      color: #1a1a1a;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      min-height: 100vh;
-      padding: 30px 16px;
-    }
-
-    .page {
-      background: #f5f0e8;
-      width: 740px;
-      border: 1.5px solid #888;
-      padding: 0;
-      box-shadow: 4px 6px 18px rgba(0,0,0,0.25);
-    }
-
-    /* ── Fax header ── */
-    .fax-header {
-      background: #fff;
-      border-bottom: 1px solid #bbb;
-      padding: 5px 12px;
-      font-size: 10px;
-      color: #444;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    /* ── Title block ── */
-    .title-block {
-      display: flex;
-      align-items: stretch;
-      border-bottom: 1.5px solid #555;
-    }
-    .title-center {
-      flex: 1;
-      text-align: center;
-      padding: 10px 8px 8px;
-      border-left: 1.5px solid #555;
-      border-right: 1.5px solid #555;
-    }
-    .title-center h1 {
-      font-family: 'IM Fell English', serif;
-      font-size: 15px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      line-height: 1.4;
-      text-decoration: underline;
-    }
-    .date-box {
-      width: 130px;
-      padding: 8px 10px;
-      font-size: 11px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .date-box label { font-weight: 600; }
-    .date-box input[type="date"] {
-      border: none;
-      border-bottom: 1px solid #555;
-      background: transparent;
-      font-size: 11px;
-      width: 100%;
-      margin-top: 4px;
-      outline: none;
-    }
-
-    /* ── Section header ── */
-    .section-header {
-      background: #ddd8ce;
-      border-top: 1.5px solid #555;
-      border-bottom: 1.5px solid #555;
-      text-align: center;
-      padding: 4px;
-      font-weight: 700;
-      font-size: 11.5px;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-    }
-
-    /* ── Generic form body ── */
-    .form-body {
-      padding: 10px 14px;
-      border-bottom: 1.5px solid #555;
-    }
-
-    .field-row {
-      display: flex;
-      align-items: flex-end;
-      gap: 16px;
-      margin-bottom: 8px;
-      flex-wrap: wrap;
-    }
-    .field {
-      display: flex;
-      align-items: flex-end;
-      gap: 4px;
-      flex: 1;
-      min-width: 160px;
-    }
-    .field label {
-      white-space: nowrap;
-      font-weight: 600;
-      font-size: 11px;
-    }
-    .field input[type="text"],
-    .field input[type="tel"],
-    .field input[type="email"],
-    .field input[type="number"] {
-      flex: 1;
-      border: none;
-      border-bottom: 1px dotted #555;
-      background: transparent;
-      font-size: 11px;
-      font-family: inherit;
-      outline: none;
-      min-width: 60px;
-      color: #111;
-    }
-
-    /* ── Lien avec l'adhérent ── */
-    .lien-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 6px;
-    }
-    .lien-row label.lien-label { font-weight: 600; font-size: 11px; }
-    .checkbox-group {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      font-size: 11px;
-    }
-    .checkbox-group input[type="checkbox"] { cursor: pointer; }
-    .age-field {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      font-size: 11px;
-    }
-    .age-field input {
-      width: 50px;
-      border: none;
-      border-bottom: 1px dotted #555;
-      background: transparent;
-      outline: none;
-      font-size: 11px;
-    }
-
-    /* ── Prestations ── */
-    .prestations-body {
-      padding: 10px 14px;
-      border-bottom: 1.5px solid #555;
-    }
-
-    .urgence-row {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      margin: 6px 0;
-    }
-    .urgence-row label.urg-label { font-weight: 600; font-size: 11px; }
-
-    /* ── Signature table ── */
-    .sig-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    .sig-table td {
-      border: 1.5px solid #555;
-      padding: 8px 10px;
-      vertical-align: top;
-      width: 33.33%;
-      font-size: 10.5px;
-      font-weight: 700;
-      text-align: center;
-    }
-    .sig-table td .sig-title {
-      font-size: 11px;
-      text-decoration: underline;
-      margin-bottom: 4px;
-    }
-    .sig-table td .sig-sub {
-      font-weight: 400;
-      font-style: italic;
-      font-size: 10px;
-    }
-    .sig-space {
-      height: 50px;
-    }
-
-    /* ── Decision strip ── */
-    .decision-strip {
-      border-top: 1.5px solid #555;
-      border-bottom: 1.5px solid #555;
-      text-align: center;
-      padding: 5px;
-      font-style: italic;
-      font-size: 11px;
-      font-weight: 600;
-    }
-
-    /* ── Important notes ── */
-    .notes-section {
-      padding: 12px 16px 10px;
-      font-size: 10.5px;
-      line-height: 1.6;
-    }
-    .notes-section p.important-title {
-      font-weight: 700;
-      text-decoration: underline;
-      margin-bottom: 4px;
-    }
-    .notes-section ul {
-      padding-left: 18px;
-      margin-top: 6px;
-      font-style: italic;
-    }
-    .notes-section .pieces {
-      font-style: italic;
-      font-size: 10px;
-    }
-    .notes-section .pieces-title {
-      font-style: normal;
-      font-weight: 600;
-      font-size: 10.5px;
-      margin-top: 8px;
-    }
-
-    /* ── Footer address ── */
-    .footer-address {
-      text-align: center;
-      font-size: 10px;
-      font-weight: 700;
-      padding: 8px 10px 12px;
-      border-top: 1px solid #aaa;
-      line-height: 1.7;
-    }
-
-    @media print {
-      body { background: white; padding: 0; }
-      .page { box-shadow: none; width: 100%; border: none; }
-    }
-  </style>
 </head>
 <body>
-<div class="page">
 
-  <!-- Fax Header -->
-  <div class="fax-header">
-    <span>To: Clinique</span>
-    <span>From: Mutuelle des FAR &nbsp;|&nbsp; Mutuelle des FAR</span>
-    <span>Time: 2022.02.18 &nbsp;11:32 &nbsp;P2/2</span>
-  </div>
+<p>To: Clinique &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; From: Mutuelle des FAR &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Time: 2022.02.18 &nbsp; 11:32 &nbsp; P2/2</p>
 
-  <!-- Title -->
-  <div class="title-block">
-    <div class="title-center">
-      <h1>Demande de Prise en Charge<br>Mutuelle des FAR</h1>
-    </div>
-    <div class="date-box">
-      <label>Date :</label>
-      <input type="date">
-    </div>
-  </div>
+<hr>
 
-  <!-- Section: Établissement -->
-  <div class="section-header">À remplir par l'établissement</div>
-  <div class="form-body">
-    <div class="field-row">
-      <div class="field">
-        <label>Nom de l'établissement :</label>
-        <input type="text">
-      </div>
-      <div class="field" style="max-width:180px">
-        <label>Code :</label>
-        <input type="text">
-      </div>
-    </div>
-    <div class="field-row">
-      <div class="field">
-        <label>Adresse :</label>
-        <input type="text">
-      </div>
-    </div>
-    <div class="field-row">
-      <div class="field" style="max-width:200px; visibility:hidden"></div>
-      <div class="field" style="max-width:200px">
-        <label>Ville :</label>
-        <input type="text">
-      </div>
-    </div>
-    <div class="field-row">
-      <div class="field">
-        <label>Tél :</label>
-        <input type="tel">
-      </div>
-      <div class="field">
-        <label>Fax :</label>
-        <input type="tel">
-      </div>
-      <div class="field">
-        <label>Mail :</label>
-        <input type="email">
-      </div>
-    </div>
-  </div>
+<table border="1" width="100%" cellpadding="5" cellspacing="0">
+  <tr>
+    <td align="center">
+      <b><u>DEMANDE DE PRISE EN CHARGE<br>MUTUELLE DES FAR</u></b>
+    </td>
+    <td width="200">
+      Date : <input type="date">
+    </td>
+  </tr>
+</table>
 
-  <!-- Section: Adhérent / Bénéficiaire -->
-  <div class="form-body" style="border-top:1.5px solid #555;">
-    <div class="field-row">
-      <div class="field">
-        <label>Nom et prénom de l'adhérent :</label>
-        <input type="text">
-      </div>
-      <div class="field" style="max-width:220px">
-        <label>C.N.I.E :</label>
-        <input type="text">
-      </div>
-    </div>
-    <div class="field-row">
-      <div class="field">
-        <label>Bénéficiaire :</label>
-        <input type="text">
-      </div>
-      <div class="field" style="max-width:220px">
-        <label>C.N.I.E :</label>
-        <input type="text">
-      </div>
-    </div>
-    <div class="field-row">
-      <div class="field">
-        <label>Adresse :</label>
-        <input type="text">
-      </div>
-      <div class="field" style="max-width:150px">
-        <label>Ville :</label>
-        <input type="text">
-      </div>
-      <div class="field" style="max-width:160px">
-        <label>Tél/GSM :</label>
-        <input type="tel">
-      </div>
-    </div>
-    <div class="lien-row">
-      <label class="lien-label">Lien avec l'adhérent :</label>
-      <div class="checkbox-group"><input type="checkbox" id="lui"> <label for="lui">Lui(elle)-même</label></div>
-      <div class="checkbox-group"><input type="checkbox" id="conjoint"> <label for="conjoint">Conjoint</label></div>
-      <div class="checkbox-group"><input type="checkbox" id="enfant"> <label for="enfant">Enfant</label></div>
-      <span>&#10142;</span>
-      <div class="age-field"><label>Âge :</label><input type="number" min="0" max="99"></div>
-    </div>
-  </div>
+<br>
 
-  <!-- Section: Prestations -->
-  <div class="section-header">Prestations Demandées</div>
-  <div class="prestations-body">
-    <div class="field-row">
-      <div class="field">
-        <label>Diagnostic :</label>
-        <input type="text">
-      </div>
-    </div>
-    <div class="field-row">
-      <div class="field">
-        <label>Nature de l'acte :</label>
-        <input type="text">
-      </div>
-    </div>
-    <div class="urgence-row">
-      <label class="urg-label">Urgent :</label>
-      <input type="checkbox" id="urgent"><label for="urgent"></label>
-      <label class="urg-label" style="margin-left:20px">Programmé :</label>
-      <input type="checkbox" id="programme"><label for="programme"></label>
-    </div>
-    <div class="field-row">
-      <div class="field">
-        <label>Code de l'acte :</label>
-        <input type="text" style="max-width:100px">
-      </div>
-      <div class="field">
-        <label>Cotation :</label>
-        <input type="text" style="max-width:80px">
-      </div>
-      <div class="field">
-        <label>Kc assimilé :</label>
-        <input type="text" style="max-width:100px">
-      </div>
-    </div>
-    <div class="field-row">
-      <div class="field">
-        <label>Date d'hospitalisation :</label>
-        <input type="date">
-      </div>
-      <div class="field">
-        <label>Durée prévisible :</label>
-        <input type="number" min="0" style="max-width:60px">
-        <span style="margin-left:4px;font-size:11px">Jours</span>
-      </div>
-    </div>
-    <div class="field-row">
-      <div class="field">
-        <label>Tarif/Dhs :</label>
-        <input type="text" style="max-width:100px">
-      </div>
-      <div class="field">
-        <label>Part Mutuelle :</label>
-        <input type="text" style="max-width:100px">
-      </div>
-      <div class="field">
-        <label>Part Adhérent :</label>
-        <input type="text" style="max-width:100px">
-      </div>
-    </div>
-  </div>
+<table border="1" width="100%" cellpadding="5" cellspacing="0">
+  <tr>
+    <td colspan="2" align="center"><b>A remplir par l'établissement</b></td>
+  </tr>
+  <tr>
+    <td>Nom de l'établissement : <input type="text" size="30"></td>
+    <td>Code : <input type="text" size="15"></td>
+  </tr>
+  <tr>
+    <td colspan="2">Adresse : <input type="text" size="60"></td>
+  </tr>
+  <tr>
+    <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ville : <input type="text" size="20"></td>
+  </tr>
+  <tr>
+    <td>Tél : <input type="tel" size="15"> &nbsp;&nbsp; Fax : <input type="tel" size="15"></td>
+    <td>Mail : <input type="email" size="25"></td>
+  </tr>
+</table>
 
-  <!-- Signatures -->
-  <table class="sig-table">
-    <tr>
-      <td>
-        <div class="sig-title">Signature<br>du bénéficiaire</div>
-        <div class="sig-space"></div>
-      </td>
-      <td>
-        <div class="sig-title">INPE / Code à barres</div>
-        <div class="sig-sub">Signature et cachet du médecin traitant</div>
-        <div class="sig-space"></div>
-      </td>
-      <td>
-        <div class="sig-title">INPE / Code à barres</div>
-        <div class="sig-sub">Signature et cachet de l'établissement</div>
-        <div class="sig-space"></div>
-      </td>
-    </tr>
-  </table>
+<br>
 
-  <!-- Decision -->
-  <div class="decision-strip">
-    · Décision de la Commission Médico-Administrative de la DMFAR ·
-  </div>
+<table border="1" width="100%" cellpadding="5" cellspacing="0">
+  <tr>
+    <td>Nom et prénom de l'adhérent : <input type="text" size="30"></td>
+    <td>C.N.I.E : <input type="text" size="20"></td>
+  </tr>
+  <tr>
+    <td>Bénéficiaire : <input type="text" size="35"></td>
+    <td>C.N.I.E : <input type="text" size="20"></td>
+  </tr>
+  <tr>
+    <td colspan="2">Adresse : <input type="text" size="30"> &nbsp; Ville : <input type="text" size="15"> &nbsp; Tél/GSM : <input type="tel" size="15"></td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      Lien avec l'adhérent :
+      &nbsp;<input type="checkbox" id="lui"><label for="lui"> Lui(elle)-même</label>
+      &nbsp;&nbsp;<input type="checkbox" id="conjoint"><label for="conjoint"> Conjoint</label>
+      &nbsp;&nbsp;<input type="checkbox" id="enfant"><label for="enfant"> Enfant</label>
+      &nbsp; &#10142; Age : <input type="number" size="4" min="0" max="99">
+    </td>
+  </tr>
+</table>
 
-  <!-- Notes importantes -->
-  <div class="notes-section">
-    <p class="important-title">Important :</p>
-    <p>- Le prestataire de soins est tenu de s'assurer de l'identité du bénéficiaire par la demande des cartes nationale et mutuelle originales ;</p>
-    <p>- Ce formulaire doit être rempli avec soin et exactitude pour permettre à la Mutuelle des FAR de l'exploiter dans un meilleur délai.</p>
-    <p class="pieces-title">Pièces à joindre :</p>
-    <ul class="pieces">
-      <li>Photocopie de la carte de mutuelle, des cartes nationales de l'adhérent, et du bénéficiaire majeur ;</li>
-      <li>Bilans confirmant le diagnostic ;</li>
-      <li>Rapport détaillé du médecin traitant.</li>
-    </ul>
-  </div>
+<br>
 
-  <!-- Footer -->
-  <div class="footer-address">
-    Direction de la Mutuelle des Forces Armées Royales<br>
-    Complexe Socio-Administratif des FAR, Avenue AL Milla Hay Riad B.P 92 – Rabat –<br>
-    TEL : 05-37-72-21-08 · FAX : 05-37-26-13-66 &amp; 05-37-73-58-57
-  </div>
+<table border="1" width="100%" cellpadding="5" cellspacing="0">
+  <tr>
+    <td colspan="2" align="center"><b>PRESTATIONS DEMANDEES</b></td>
+  </tr>
+  <tr>
+    <td colspan="2">Diagnostic : <input type="text" size="70"></td>
+  </tr>
+  <tr>
+    <td colspan="2">Nature de l'acte : <input type="text" size="65"></td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      Urgent : <input type="checkbox" id="urgent">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      Programmé : <input type="checkbox" id="programme">
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      Code de l'acte : <input type="text" size="12">
+      &nbsp; Cotation : <input type="text" size="10">
+      &nbsp; Kc assimilé : <input type="text" size="12">
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      Date d'hospitalisation : <input type="date">
+      &nbsp;&nbsp; Durée prévisible : <input type="number" size="4" min="0"> Jours
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      Tarif/Dhs : <input type="text" size="12">
+      &nbsp;&nbsp; Part Mutuelle : <input type="text" size="12">
+      &nbsp;&nbsp; Part Adhérent : <input type="text" size="12">
+    </td>
+  </tr>
+</table>
 
-</div>
+<br>
+
+<table border="1" width="100%" cellpadding="10" cellspacing="0">
+  <tr>
+    <td width="33%" align="center" valign="top">
+      <u><b>Signature<br>du bénéficiaire</b></u>
+      <br><br><br><br><br>
+    </td>
+    <td width="33%" align="center" valign="top">
+      <u><b>INPE/Code à barres</b></u><br>
+      <i>Signature et cachet du médecin traitant</i>
+      <br><br><br><br><br>
+    </td>
+    <td width="33%" align="center" valign="top">
+      <u><b>INPE/Code à barres</b></u><br>
+      <i>Signature et cachet de l'établissement</i>
+      <br><br><br><br><br>
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<p align="center"><i>· Décision de la Commission Médico-Administrative de la DMFAR ·</i></p>
+
+<hr>
+
+<p>
+  <b><u>Important :</u></b><br>
+  - Le prestataire de soins est tenu de s'assurer de l'identité du bénéficiaire par la demande des cartes nationale et mutuelle originales ;<br>
+  - Ce formulaire doit être rempli avec soins et exactitude pour permettre à la Mutuelle des FAR de l'exploiter dans un meilleur délai.
+</p>
+
+<p><i>Pièces à joindre :</i></p>
+<ul>
+  <li><i>Photocopie de la carte de mutuelle, des cartes nationales de l'adhérent, et du bénéficiaire majeur ;</i></li>
+  <li><i>Bilans confirmant le diagnostic ;</i></li>
+  <li><i>Rapport détaillé du médecin traitant.</i></li>
+</ul>
+
+<br>
+
+<p align="center">
+  <b>Direction de la Mutuelle des Forces Armées Royales</b><br>
+  <b>Complexe Socio-Administratif des FAR, Avenue AL Milla Hay Riad B.P 92 – Rabat –</b><br>
+  <b>TEL : 05-37-72-21-08 &nbsp; FAX : 05-37-26-13-66 &amp; 05-37-73-58-57</b>
+</p>
+
 </body>
 </html>
